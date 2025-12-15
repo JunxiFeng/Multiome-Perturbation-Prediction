@@ -1,0 +1,41 @@
+Running: LatentAdditive_GET_celltypeaware_genelevel-D
+Loaded AnnData: AnnData object with n_obs × n_vars = 21700 × 5000
+    obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'seurat_clusters', 'Assign', 'scds', 'cxds', 'bcds', 'Sample', 'nCount_refAssay', 'nFeature_refAssay', 'predicted.subclass.score', 'predicted.subclass', 'CT', 'mito', 'BioSamp', 'CT2', 'ForPlot', 'Remove', 'active_ident', 'Assign_clean', 'condition', 'cell_type', 'cell_class', 'celltype_mapped'
+    var: 'variable_gene', 'gene_name', 'highly_variable', 'means', 'dispersions', 'dispersions_norm'
+    uns: 'ATAC_embeddings', 'GET_embeddings', 'hvg', 'log1p'
+Split counts:
+ split
+train    16070
+test      3033
+val       2597
+Name: count, dtype: int64
+Train=16070 | Val=2597 | Test=3033
+Pert dim: 12
+Cov dims: 4
+GET tensor: torch.Size([15, 5000, 768])
+DataLoaders ready.
+Using: cuda
+Epoch 01 | train=0.066828 | val=0.047708
+Epoch 02 | train=0.046155 | val=0.042357
+Epoch 03 | train=0.042536 | val=0.040251
+Epoch 04 | train=0.040806 | val=0.039150
+Epoch 05 | train=0.039753 | val=0.038572
+Epoch 06 | train=0.039059 | val=0.038152
+Epoch 07 | train=0.038529 | val=0.037824
+Epoch 08 | train=0.038086 | val=0.037557
+Epoch 09 | train=0.037702 | val=0.037361
+Epoch 10 | train=0.037371 | val=0.037215
+Epoch 11 | train=0.037068 | val=0.037040
+Epoch 12 | train=0.036779 | val=0.036895
+Epoch 13 | train=0.036510 | val=0.036741
+Epoch 14 | train=0.036244 | val=0.036685
+Epoch 15 | train=0.035996 | val=0.036605
+Epoch 16 | train=0.035771 | val=0.036510
+Epoch 17 | train=0.035540 | val=0.036447
+Epoch 18 | train=0.035321 | val=0.036433
+Epoch 19 | train=0.035097 | val=0.036342
+Epoch 20 | train=0.034872 | val=0.036473
+Training finished.
+{'global': {'rmse': 0.1945814182900641, 'pearson_mean': 0.8547336746588331, 'cosine_mean': 0.863514014938799}, 'per_pert': {'BCL11B': {'n_cells': 1380, 'logfc_corr': 0.9311221226663593, 'top50_recall': 0.7}, 'XPO7': {'n_cells': 392, 'logfc_corr': 0.9545477376360693, 'top50_recall': 0.88}, 'TBR1': {'n_cells': 607, 'logfc_corr': 0.9886720797798543, 'top50_recall': 0.92}, 'CX3CL1': {'n_cells': 183, 'logfc_corr': 0.9830475848932193, 'top50_recall': 0.94}, 'HERC1': {'n_cells': 162, 'logfc_corr': 0.9811597416986333, 'top50_recall': 0.86}, 'ctrl': {'n_cells': 309, 'logfc_corr': 0.9138828860033917, 'top50_recall': 0.68}}}
+===== END =====
+Time: Fri Nov 21 15:14:38 PST 2025

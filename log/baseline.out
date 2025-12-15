@@ -1,0 +1,41 @@
+Running: LatentAdditive_baseline
+Loaded AnnData: AnnData object with n_obs × n_vars = 21700 × 5000
+    obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'seurat_clusters', 'Assign', 'scds', 'cxds', 'bcds', 'Sample', 'nCount_refAssay', 'nFeature_refAssay', 'predicted.subclass.score', 'predicted.subclass', 'CT', 'mito', 'BioSamp', 'CT2', 'ForPlot', 'Remove', 'active_ident', 'Assign_clean', 'condition', 'cell_type', 'cell_class', 'celltype_mapped'
+    var: 'variable_gene', 'gene_name', 'highly_variable', 'means', 'dispersions', 'dispersions_norm'
+    uns: 'ATAC_embeddings', 'GET_embeddings', 'hvg', 'log1p'
+Split counts:
+split
+train    16070
+test      3033
+val       2597
+Name: count, dtype: int64
+Train=16070 | Val=2597 | Test=3033
+Genes=5000
+Pert dim: 12
+Cov dim: 4
+DataLoaders ready.
+Using: cuda
+Epoch 01 | train=0.068741 | val=0.049844 | lr=1.00e-04
+Epoch 02 | train=0.048520 | val=0.044852 | lr=1.00e-04
+Epoch 03 | train=0.044766 | val=0.041843 | lr=1.00e-04
+Epoch 04 | train=0.042257 | val=0.040291 | lr=1.00e-04
+Epoch 05 | train=0.040891 | val=0.039408 | lr=1.00e-04
+Epoch 06 | train=0.039925 | val=0.038741 | lr=1.00e-04
+Epoch 07 | train=0.039220 | val=0.038313 | lr=1.00e-04
+Epoch 08 | train=0.038663 | val=0.038008 | lr=1.00e-04
+Epoch 09 | train=0.038201 | val=0.037629 | lr=1.00e-04
+Epoch 10 | train=0.037769 | val=0.037414 | lr=1.00e-04
+Epoch 11 | train=0.037426 | val=0.037152 | lr=1.00e-04
+Epoch 12 | train=0.037088 | val=0.037006 | lr=1.00e-04
+Epoch 13 | train=0.036787 | val=0.036858 | lr=1.00e-04
+Epoch 14 | train=0.036504 | val=0.036734 | lr=1.00e-04
+Epoch 15 | train=0.036239 | val=0.036645 | lr=1.00e-04
+Epoch 16 | train=0.035982 | val=0.036502 | lr=1.00e-04
+Epoch 17 | train=0.035728 | val=0.036459 | lr=1.00e-04
+Epoch 18 | train=0.035485 | val=0.036330 | lr=1.00e-04
+Epoch 19 | train=0.035223 | val=0.036320 | lr=1.00e-04
+Epoch 20 | train=0.034992 | val=0.036230 | lr=1.00e-04
+Training complete.
+{'global': {'rmse': 0.1939578187719199, 'pearson_mean': 0.8558715187572802, 'cosine_mean': 0.8645780386432084, 'global_logfc_cosine': 0.8785529755893827}, 'per_pert': {'BCL11B': {'n_cells': 1380, 'logfc_corr': 0.9491281344240899, 'logfc_cosine': 0.9510243315518992, 'top50_recall': 0.72}, 'XPO7': {'n_cells': 392, 'logfc_corr': 0.952983889359249, 'logfc_cosine': 0.9549864653126368, 'top50_recall': 0.74}, 'TBR1': {'n_cells': 607, 'logfc_corr': 0.9469434172232571, 'logfc_cosine': 0.9472215554547577, 'top50_recall': 0.82}, 'CX3CL1': {'n_cells': 183, 'logfc_corr': 0.9345024073570908, 'logfc_cosine': 0.9347959925803381, 'top50_recall': 0.78}, 'HERC1': {'n_cells': 162, 'logfc_corr': 0.9413707408927103, 'logfc_cosine': 0.9415989010861557, 'top50_recall': 0.86}}}
+===== END =====
+Time: Mon Nov 24 12:46:16 PST 2025

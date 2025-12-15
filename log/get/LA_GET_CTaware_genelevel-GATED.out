@@ -1,0 +1,44 @@
+Running: LatentAdditive_GET_celltypeaware_GATED
+Loaded AnnData: AnnData object with n_obs × n_vars = 21700 × 5000
+    obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'seurat_clusters', 'Assign', 'scds', 'cxds', 'bcds', 'Sample', 'nCount_refAssay', 'nFeature_refAssay', 'predicted.subclass.score', 'predicted.subclass', 'CT', 'mito', 'BioSamp', 'CT2', 'ForPlot', 'Remove', 'active_ident', 'Assign_clean', 'condition', 'cell_type', 'cell_class', 'celltype_mapped'
+    var: 'variable_gene', 'gene_name', 'highly_variable', 'means', 'dispersions', 'dispersions_norm'
+    uns: 'ATAC_embeddings', 'GET_embeddings', 'hvg', 'log1p'
+Split counts:
+split
+train    16070
+test      3033
+val       2597
+Name: count, dtype: int64
+Train=16070 | Val=2597 | Test=3033
+Genes=5000
+Pert dim: 12
+Cov dim: 4
+Loaded GET tensor: torch.Size([15, 5000, 768])
+DataLoaders ready.
+Using: cuda
+Epoch 01 | train=0.069224 | val=0.050217 | lr=1.00e-04
+Epoch 02 | train=0.048673 | val=0.044854 | lr=1.00e-04
+Epoch 03 | train=0.044842 | val=0.041984 | lr=1.00e-04
+Epoch 04 | train=0.042441 | val=0.040486 | lr=1.00e-04
+Epoch 05 | train=0.040983 | val=0.039486 | lr=1.00e-04
+Epoch 06 | train=0.039997 | val=0.038865 | lr=1.00e-04
+Epoch 07 | train=0.039276 | val=0.038327 | lr=1.00e-04
+Epoch 08 | train=0.038718 | val=0.037976 | lr=1.00e-04
+Epoch 09 | train=0.038255 | val=0.037711 | lr=1.00e-04
+Epoch 10 | train=0.037864 | val=0.037491 | lr=1.00e-04
+Epoch 11 | train=0.037532 | val=0.037289 | lr=1.00e-04
+Epoch 12 | train=0.037215 | val=0.037163 | lr=1.00e-04
+Epoch 13 | train=0.036933 | val=0.037020 | lr=1.00e-04
+Epoch 14 | train=0.036667 | val=0.036887 | lr=1.00e-04
+Epoch 15 | train=0.036418 | val=0.036772 | lr=1.00e-04
+Epoch 16 | train=0.036161 | val=0.036664 | lr=1.00e-04
+Epoch 17 | train=0.035904 | val=0.036602 | lr=1.00e-04
+Epoch 18 | train=0.035675 | val=0.036510 | lr=1.00e-04
+Epoch 19 | train=0.035432 | val=0.036509 | lr=1.00e-04
+Epoch 20 | train=0.035197 | val=0.036423 | lr=1.00e-04
+Training complete.
+Learned GET gate α = 0.6356053352355957
+{'global': {'rmse': 0.19434595321839299, 'pearson_mean': 0.8551946235517468, 'cosine_mean': 0.8639391637396715, 'global_logfc_cosine': 0.8801831694302888}, 'per_pert': {'BCL11B': {'n_cells': 1380, 'logfc_corr': 0.9486178823518691, 'logfc_cosine': 0.9505304498363351, 'top50_recall': 0.74}, 'XPO7': {'n_cells': 392, 'logfc_corr': 0.9533687392389887, 'logfc_cosine': 0.9553735139750466, 'top50_recall': 0.72}, 'TBR1': {'n_cells': 607, 'logfc_corr': 0.9485321354975024, 'logfc_cosine': 0.9490273954754737, 'top50_recall': 0.82}, 'CX3CL1': {'n_cells': 183, 'logfc_corr': 0.9375684278248946, 'logfc_cosine': 0.9377736895186645, 'top50_recall': 0.84}, 'HERC1': {'n_cells': 162, 'logfc_corr': 0.9412180521951627, 'logfc_cosine': 0.9414601323652861, 'top50_recall': 0.86}}}
+Final α = 0.6356053352355957
+===== END =====
+Time: Mon Nov 24 12:15:01 PST 2025

@@ -1,0 +1,32 @@
+Running: LatentAdditive_ATAC_celltypeaware_GATED
+Loaded AnnData: AnnData object with n_obs × n_vars = 21700 × 5000
+    obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'seurat_clusters', 'Assign', 'scds', 'cxds', 'bcds', 'Sample', 'nCount_refAssay', 'nFeature_refAssay', 'predicted.subclass.score', 'predicted.subclass', 'CT', 'mito', 'BioSamp', 'CT2', 'ForPlot', 'Remove', 'active_ident', 'Assign_clean', 'condition', 'cell_type', 'cell_class', 'celltype_mapped'
+    var: 'variable_gene', 'gene_name', 'highly_variable', 'means', 'dispersions', 'dispersions_norm'
+    uns: 'ATAC_embeddings', 'GET_embeddings', 'hvg', 'log1p'
+ATAC tensor: torch.Size([10, 30])
+Epoch 1: train=0.0687, val=0.0498
+Epoch 2: train=0.0485, val=0.0448
+Epoch 3: train=0.0446, val=0.0420
+Epoch 4: train=0.0422, val=0.0402
+Epoch 5: train=0.0407, val=0.0393
+Epoch 6: train=0.0398, val=0.0387
+Epoch 7: train=0.0391, val=0.0382
+Epoch 8: train=0.0386, val=0.0379
+Epoch 9: train=0.0381, val=0.0377
+Epoch 10: train=0.0377, val=0.0374
+Epoch 11: train=0.0374, val=0.0372
+Epoch 12: train=0.0371, val=0.0371
+Epoch 13: train=0.0368, val=0.0369
+Epoch 14: train=0.0365, val=0.0368
+Epoch 15: train=0.0362, val=0.0367
+Epoch 16: train=0.0360, val=0.0367
+Epoch 17: train=0.0357, val=0.0365
+Epoch 18: train=0.0355, val=0.0365
+Epoch 19: train=0.0352, val=0.0365
+Epoch 20: train=0.0350, val=0.0364
+{'global': {'rmse': 0.1943687238783929, 'pearson_mean': 0.8550854974381654, 'cosine_mean': 0.8638415169596023, 'global_logfc_cosine': 0.8773924475822229}, 'per_pert': {'BCL11B': {'n_cells': 1380, 'logfc_corr': 0.949104403067889, 'logfc_cosine': 0.9509760662183842, 'top50_recall': 0.76}, 'XPO7': {'n_cells': 392, 'logfc_corr': 0.9519153706836635, 'logfc_cosine': 0.9539235267825488, 'top50_recall': 0.74}, 'TBR1': {'n_cells': 607, 'logfc_corr': 0.9471320660270551, 'logfc_cosine': 0.9475994908589871, 'top50_recall': 0.78}, 'CX3CL1': {'n_cells': 183, 'logfc_corr': 0.934255586952859, 'logfc_cosine': 0.9345511674332421, 'top50_recall': 0.82}, 'HERC1': {'n_cells': 162, 'logfc_corr': 0.9406683752548256, 'logfc_cosine': 0.9408258124670104, 'top50_recall': 0.88}}}
+
+=== Learned GLOBAL α ===
+alpha = 0.49238142371177673
+===== END =====
+Time: Mon Nov 24 12:14:05 PST 2025

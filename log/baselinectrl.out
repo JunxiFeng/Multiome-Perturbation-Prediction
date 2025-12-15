@@ -1,0 +1,35 @@
+Running: LatentAdditive_baselinectrl
+Loaded AnnData: AnnData object with n_obs × n_vars = 21700 × 5000
+    obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'seurat_clusters', 'Assign', 'scds', 'cxds', 'bcds', 'Sample', 'nCount_refAssay', 'nFeature_refAssay', 'predicted.subclass.score', 'predicted.subclass', 'CT', 'mito', 'BioSamp', 'CT2', 'ForPlot', 'Remove', 'active_ident', 'Assign_clean', 'condition', 'cell_type', 'cell_class', 'celltype_mapped'
+    var: 'variable_gene', 'gene_name', 'highly_variable', 'means', 'dispersions', 'dispersions_norm'
+    uns: 'ATAC_embeddings', 'GET_embeddings', 'hvg', 'log1p'
+CTRL counts:
+Train: 1199
+Val: 273
+Test: 309
+Epoch 1: train_loss=0.1826
+Epoch 2: train_loss=0.0673
+Epoch 3: train_loss=0.0647
+Epoch 4: train_loss=0.0643
+Epoch 5: train_loss=0.0638
+Epoch 6: train_loss=0.0638
+Epoch 7: train_loss=0.0615
+Epoch 8: train_loss=0.0593
+Epoch 9: train_loss=0.0570
+Epoch 10: train_loss=0.0544
+Epoch 11: train_loss=0.0530
+Epoch 12: train_loss=0.0521
+Epoch 13: train_loss=0.0515
+Epoch 14: train_loss=0.0509
+Epoch 15: train_loss=0.0503
+Epoch 16: train_loss=0.0500
+Epoch 17: train_loss=0.0494
+Epoch 18: train_loss=0.0490
+Epoch 19: train_loss=0.0487
+Epoch 20: train_loss=0.0486
+Training complete.
+
+CTRL-only reconstruction results:
+{'rmse': 0.22573180496692657, 'pearson_mean': 0.7997489134766134, 'cosine_mean': 0.8126781052097033}
+===== END =====
+Time: Mon Nov 24 15:22:27 PST 2025

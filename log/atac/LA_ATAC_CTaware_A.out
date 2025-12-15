@@ -1,0 +1,29 @@
+Running: LatentAdditive_ATAC_celltypeaware_A
+Loaded AnnData: AnnData object with n_obs × n_vars = 21700 × 5000
+    obs: 'orig.ident', 'nCount_RNA', 'nFeature_RNA', 'seurat_clusters', 'Assign', 'scds', 'cxds', 'bcds', 'Sample', 'nCount_refAssay', 'nFeature_refAssay', 'predicted.subclass.score', 'predicted.subclass', 'CT', 'mito', 'BioSamp', 'CT2', 'ForPlot', 'Remove', 'active_ident', 'Assign_clean', 'condition', 'cell_type', 'cell_class', 'celltype_mapped'
+    var: 'variable_gene', 'gene_name', 'highly_variable', 'means', 'dispersions', 'dispersions_norm'
+    uns: 'ATAC_embeddings', 'GET_embeddings', 'hvg', 'log1p'
+ATAC tensor: torch.Size([10, 30])
+Epoch 1 train=0.0689 val=0.0497
+Epoch 2 train=0.0483 val=0.0446
+Epoch 3 train=0.0444 val=0.0417
+Epoch 4 train=0.0420 val=0.0401
+Epoch 5 train=0.0406 val=0.0392
+Epoch 6 train=0.0397 val=0.0386
+Epoch 7 train=0.0390 val=0.0381
+Epoch 8 train=0.0385 val=0.0379
+Epoch 9 train=0.0380 val=0.0376
+Epoch 10 train=0.0377 val=0.0374
+Epoch 11 train=0.0374 val=0.0372
+Epoch 12 train=0.0371 val=0.0370
+Epoch 13 train=0.0368 val=0.0369
+Epoch 14 train=0.0365 val=0.0368
+Epoch 15 train=0.0362 val=0.0367
+Epoch 16 train=0.0360 val=0.0366
+Epoch 17 train=0.0357 val=0.0365
+Epoch 18 train=0.0355 val=0.0365
+Epoch 19 train=0.0353 val=0.0364
+Epoch 20 train=0.0350 val=0.0364
+{'global': {'rmse': 0.1943233140842365, 'pearson_mean': 0.8551989455864878, 'cosine_mean': 0.8639496712420234}, 'per_pert': {'BCL11B': {'n_cells': 1380, 'logfc_corr': 0.9352065661156204, 'top50_recall': 0.74}, 'XPO7': {'n_cells': 392, 'logfc_corr': 0.9580673901405895, 'top50_recall': 0.9}, 'TBR1': {'n_cells': 607, 'logfc_corr': 0.9887139315785081, 'top50_recall': 0.88}, 'CX3CL1': {'n_cells': 183, 'logfc_corr': 0.9823295426504517, 'top50_recall': 0.94}, 'HERC1': {'n_cells': 162, 'logfc_corr': 0.9808425954001647, 'top50_recall': 0.84}, 'ctrl': {'n_cells': 309, 'logfc_corr': 0.9195285502535193, 'top50_recall': 0.74}}}
+===== END =====
+Time: Fri Nov 21 17:52:44 PST 2025
