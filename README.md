@@ -1,67 +1,105 @@
-📘 Baseline: Latent Additive Model
+# Multiome Perturbation Prediction with Gated Latent Fusion
 
-The baseline predicts expression under perturbations using:
+## Overview
 
-expression vector x
+We implement and compare **three model families**:
 
-perturbation vector p
+- **Baseline Latent Additive Model (RNA-only)**
+- **GET-augmented Latent Additive Model with Learnable Gate**
+- **ATAC-augmented Latent Additive Model with Global Gate**
 
-cell-type covariates cov
+All models predict **gene expression under perturbation** using reconstruction loss and are evaluated using downstream perturbation metrics.
 
-The model computes:
+---
 
+## Models
+
+### 1️⃣ Baseline: Latent Additive RNA Model
+
+**No multiome information.**
+
+#### Inputs
+- Gene expression **x**
+- Perturbation one-hot **p**
+- Cell-type covariates **cov**
+
+#### Formulation
+```text
 z_ctrl = gene_encoder([x, cov])
 z_pert = pert_encoder(p)
-z = z_ctrl + z_pert
-x_hat = decoder([z, cov])
+z      = z_ctrl + z_pert
+x̂      = decoder([z, cov])
+```
 
+This serves as the **reference model**.
 
-This contains no multiome information.
+---
 
-🚀 GET-Augmented Architectures
+### 2️⃣ GET-Augmented Model (Cell-Type–Aware, Gated)
 
-Each mapped cell type has a GET embedding matrix:
+**File:** `LatentAdditiveGET_Encoder_Gated`
 
-adata.uns["GET_embeddings"][celltype] → (n_genes × d_get)
+This model integrates **cell-type–level GET embeddings** *(genes × d_get)* using a **learnable scalar gate**.
 
+#### Inputs
+- Gene expression **x**
+- Perturbation one-hot **p**
+- Cell-type covariates **cov**
+- Cell-type GET embedding **GET_ct**
 
-These matrices encode gene-level regulatory embedding vectors.
+#### GET Processing
+```text
+GET_ct (genes × d_get)
+→ mean over d_get → (genes,)
+→ MLP → z_get
+```
 
-We test two fusion strategies.
+#### Formulation
+```text
+z_ctrl  = gene_encoder([x, cov])
+z_pert  = pert_encoder(p)
+z_rna   = z_ctrl + z_pert
 
-🅰️ Option A — Cell-Level GET Projection
-Concept
+α       = softplus(alpha_param)   # α > 0
+z_fused = z_rna + α · z_get
 
-GET embeddings are projected into a cell-level regulatory summary:
+x̂       = decoder([z_fused, cov])
+```
 
-cell_GET = X @ GET_ct        # (1 × d_get)
+#### Key Properties
+- **Cell-type–aware** (GET indexed by cell type)
+- **Memory-safe** (no per-cell GET storage)
+- **Interpretable**: α directly quantifies GET contribution
+- **Stable training** via softplus gate
 
+---
 
-Then concatenated into the model latent space:
+### 3️⃣ ATAC-Augmented Model (Global Gate)
 
-z = concat( z_ctrl + z_pert , cell_GET , cov )
-x_hat = decoder(z)
+**File:** `LatentAdditiveATAC_GlobalGated`
 
-Pros
+This model integrates **cell-type ATAC embeddings** using a **single global scalar gate**.
 
-Memory-efficient
+#### Inputs
+- Gene expression **x**
+- Perturbation one-hot **p**
+- Cell-type covariates **cov**
+- Cell-type ATAC embedding **ATAC_ct**
 
-Captures global regulatory influence
+#### Formulation
+```text
+z_ctrl  = gene_encoder([x, cov])
+z_pert  = pert_encoder(p)
+z_rna   = z_ctrl + z_pert
 
-Simple & effective
+z_atac  = ATAC_encoder(ATAC_ct)
+α       = sigmoid(alpha_param)    # α ∈ (0, 1)
 
-🅱️ Option B — Gene-Level GET Bias
-Concept
+z_total = concat(z_rna, α · z_atac, cov)
+x̂       = decoder(z_total)
+```
 
-Use GET to supply a gene-specific correction:
-
-bias_g = W_get @ GET_ct[g]      # scalar
-x_hat_g = base_prediction_g + bias_g
-
-Pros
-
-Very interpretable
-
-Adjusts each gene’s output individually
-
-Good for improving DE/logFC accuracy
+#### Key Properties
+- **Single global α** shared across all cells
+- Tests whether ATAC adds **global predictive signal**
+- **Minimal inductive bias**, easy to interpret
